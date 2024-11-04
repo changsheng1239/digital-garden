@@ -3,6 +3,7 @@ title: Flashing Sonoff Zigbee Dongle-E to Ember
 tags:
   - home-assistant
   - zigbee
+date: 2024-08-12
 ---
 
 I've been running [Home Assistant](https://www.home-assistant.io/) for over a year with incredible stability. Recently, I took a leap to update my Home Assistant & [Zigbee2MQTT](https://www.zigbee2mqtt.io/) as I thought it's been outdated for a year (i probably shouldn't upgrade since everything is working fine but YOLOOOOOO). 

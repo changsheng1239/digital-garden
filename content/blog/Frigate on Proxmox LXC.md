@@ -4,6 +4,7 @@ tags:
   - frigate
   - home-assistant
 draft: false
+date: 2024-11-04
 ---
 > [!tldr]- TL;DR
 > I initially couldn't get my N97 iGPU working with Frigate in an LXC container on Proxmox. Updating the Proxmox kernel from 6.8.x to 6.12.x (latest at the time) solved the issue.
