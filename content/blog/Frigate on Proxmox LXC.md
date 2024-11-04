@@ -25,4 +25,30 @@ Once I had Proxmox installed on the G5, I opted to use an LXC container for Frig
 
 After booting up the container, Frigate detected my Intel iGPU and loaded the `openvino` model. However, by default, it was set to use the CPU:
 
-yaml
+```yaml
+detectors:
+  ov:
+    type: openvino
+    device: CPU
+    model:
+      path: /openvino-model/FP16/ssdlite_mobilenet_v2.xml
+```
+
+### Enabling the iGPU in the N97
+
+While everything was technically working, I wanted to offload inferencing to the iGPU rather than the CPU. So, I updated the configuration to `device: GPU` and restarted. But instead of success, I was greeted with errors, and Frigate kept crashing with:
+
+```log
+[GPU] Context was not initialized for 0 device
+```
+
+This error hinted at a driver-related issue. After a lot of trial and error, including multiple solutions I found online, nothing seemed to work. Here’s what I tried:
+
+1. Testing different `preset` options.
+2. Setting the environment variable `LIBVA_DRIVER_NAME: i965`.
+3. Manually installing the latest Intel runtime in the container.
+4. Booting up a Debian 12 VM, installing Docker and Frigate, and passing through the iGPU — but I still ran into the same error.
+
+Finally, thanks to a comment on this [GitHub issue](https://github.com/blakeblackshear/frigate/issues/12266#issuecomment-2400003395), I decided to upgrade my Proxmox kernel from 6.4.x to 6.12.x (the latest version at the time).
+
+After reinstalling the Frigate container, setting the device to GPU, and restarting, it booted up without errors! Inference was now working on the GPU, with detection speeds averaging around 9ms—perfect!
