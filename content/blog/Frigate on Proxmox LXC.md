@@ -5,10 +5,8 @@ tags:
   - home-assistant
 draft: false
 ---
-### TL;DR
-
-I initially couldn't get my N97 iGPU working with Frigate in an LXC container on Proxmox. Updating the Proxmox kernel from 6.4.x to 6.12.x solved the issue.
-
+> [!tldr]- TL;DR
+> I initially couldn't get my N97 iGPU working with Frigate in an LXC container on Proxmox. Updating the Proxmox kernel from 6.4.x to 6.12.x solved the issue.
 ### Why the GMK G5?
 
 I typically run my self-hosted services (like Docker and VMs) on my Synology NAS, but it doesn’t quite measure up to the Proxmox web UI experience. So, I decided to set up a dedicated instance for my home automation tools like Home Assistant and Frigate.

@@ -17,7 +17,7 @@ const config: QuartzConfig = {
       websiteId: "c8a4242e-6aac-482a-93cb-9f3da5ed971a",
     },
     locale: "en-US",
-    baseUrl: "quartz.jzhao.xyz",
+    baseUrl: "site.changshengpong.xyz",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
     theme: {
