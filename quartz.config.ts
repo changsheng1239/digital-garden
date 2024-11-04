@@ -19,7 +19,7 @@ const config: QuartzConfig = {
     locale: "en-US",
     baseUrl: "site.changshengpong.xyz",
     ignorePatterns: ["private", "templates", ".obsidian"],
-    defaultDateType: "modified",
+    defaultDateType: "created",
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
@@ -58,7 +58,7 @@ const config: QuartzConfig = {
     transformers: [
       Plugin.FrontMatter(),
       Plugin.CreatedModifiedDate({
-        priority: ["frontmatter", "git", "filesystem"],
+        priority: ["frontmatter"],
       }),
       Plugin.SyntaxHighlighting({
         theme: {
