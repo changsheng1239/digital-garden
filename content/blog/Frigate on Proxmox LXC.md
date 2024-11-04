@@ -6,7 +6,7 @@ tags:
 draft: false
 ---
 > [!tldr]- TL;DR
-> I initially couldn't get my N97 iGPU working with Frigate in an LXC container on Proxmox. Updating the Proxmox kernel from 6.4.x to 6.12.x solved the issue.
+> I initially couldn't get my N97 iGPU working with Frigate in an LXC container on Proxmox. Updating the Proxmox kernel from 6.8.x to 6.12.x (latest at the time) solved the issue.
 ### Why the GMK G5?
 
 I typically run my self-hosted services (like Docker and VMs) on my Synology NAS, but it doesn’t quite measure up to the Proxmox web UI experience. So, I decided to set up a dedicated instance for my home automation tools like Home Assistant and Frigate.
@@ -47,6 +47,6 @@ This error hinted at a driver-related issue. After a lot of trial and error, inc
 3. Manually installing the latest Intel runtime in the container.
 4. Booting up a Debian 12 VM, installing Docker and Frigate, and passing through the iGPU — but I still ran into the same error.
 
-Finally, thanks to a comment on this [GitHub issue](https://github.com/blakeblackshear/frigate/issues/12266#issuecomment-2400003395), I decided to upgrade my Proxmox kernel from 6.4.x to 6.12.x (the latest version at the time).
+Finally, thanks to a comment on this [GitHub issue](https://github.com/blakeblackshear/frigate/issues/12266#issuecomment-2400003395), I decided to upgrade my Proxmox kernel from 6.8.4 to 6.12.x (the latest version at the time).
 
 After reinstalling the Frigate container, setting the device to GPU, and restarting, it booted up without errors! Inference was now working on the GPU, with detection speeds averaging around 9ms—perfect!
